@@ -24,18 +24,22 @@ public class MarkdownParse {
                     break;
                 }
             }
+
             if (openBracket == -1) {
                 break;
             }
+            
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             if (closeBracket + 1 != openParen) {
                 continue;
             }
             int closeParen = markdown.indexOf(")", openParen);
+            
             if (currentIndex == closeParen + 1) {
                 continue;
             }
+            
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
 
