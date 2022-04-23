@@ -18,6 +18,12 @@ public class MarkdownParse {
                 break;
             }
             int openBracket = markdown.indexOf("[", currentIndex);
+            if (openBracket > 0) {
+                int exclamation = markdown.indexOf("!", currentIndex);
+                if (exclamation == openBracket - 1) {
+                    break;
+                }
+            }
             if (openBracket == -1) {
                 break;
             }
